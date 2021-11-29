@@ -5,8 +5,8 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import com.example.project.dao.User;
 import com.example.project.dto.UserEdit;
-import com.example.project.model.User;
 
 @Mapper
 public interface Usermapper {

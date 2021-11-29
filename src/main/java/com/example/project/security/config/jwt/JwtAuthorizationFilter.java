@@ -15,7 +15,7 @@ import org.springframework.security.web.authentication.www.BasicAuthenticationFi
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
-import com.example.project.model.User;
+import com.example.project.dao.User;
 import com.example.project.repository.UserRepository;
 import com.example.project.security.config.auth.PrincipalDetails;
 

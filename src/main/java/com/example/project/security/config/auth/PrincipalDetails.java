@@ -6,10 +6,11 @@ import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.example.project.model.User;
+import com.example.project.dao.User;
 
 import lombok.Data;
 
+@SuppressWarnings("serial")
 @Data
 public class PrincipalDetails implements UserDetails {
 	

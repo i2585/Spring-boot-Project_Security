@@ -17,8 +17,8 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.example.project.dao.User;
 import com.example.project.dto.JwtDto;
-import com.example.project.model.User;
 import com.example.project.security.config.auth.PrincipalDetails;
 import com.fasterxml.jackson.databind.ObjectMapper;
 

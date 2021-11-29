@@ -5,34 +5,27 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.project.mapper.Usermapper;
-import com.example.project.model.User;
+import com.example.project.dao.User;
+import com.example.project.service.FindService;
 
 @RestController
 @RequestMapping("/find")
 public class FindController {
-	private Usermapper mapper;
-	
-	public FindController(Usermapper mapper) {
-		this.mapper = mapper;
+	private FindService findService;
+
+	public FindController(FindService findService) {
+		this.findService = findService;
 	}
-	
-	@PostMapping("id")
+
+	@PostMapping("/id")
 	public String FindUserId(@RequestBody User user) {
-		if(mapper.FindId(user)!=null) {
-			user.setUserid(mapper.FindId(user));
-			return user.getUserid();
-		}
-		else {
-			return "false";
-		}
+		return findService.FindUserId(user);
 	}
-	
-	@PostMapping("pw")
+
+	@PostMapping("/pw")
 	public void FindUserPw(@RequestBody User user) {
-		mapper.FindPw(user);	
+		findService.FindUserId(user);
 	}
-	
 }
 
 

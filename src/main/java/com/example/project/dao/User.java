@@ -1,4 +1,4 @@
-package com.example.project.model;
+package com.example.project.dao;
 
 import java.util.ArrayList;
 import java.util.Arrays;

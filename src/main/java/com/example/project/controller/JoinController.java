@@ -1,13 +1,11 @@
 package com.example.project.controller;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.project.mapper.Usermapper;
-import com.example.project.model.User;
-import com.example.project.repository.UserRepository;
+import com.example.project.dao.User;
+import com.example.project.service.JoinService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -15,19 +13,14 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class JoinController {
 
-	private final Usermapper mapper;
-	private final UserRepository userRepository;
-	private final BCryptPasswordEncoder bCryptPasswordEncoder;
+	private JoinService joinService;
+
+	public JoinController(JoinService joinService) {
+		this.joinService = joinService;
+	}
 
 	@PostMapping("/join")
-	public String join(@RequestBody User user) {
-		if (mapper.checkId(user) == null) {
-			user.setPw(bCryptPasswordEncoder.encode(user.getPw()));
-			user.setRoles("ROLE_USER");
-			userRepository.save(user);
-			return "true";
-		} else {
-			return "false";
-		}
+	public boolean insertUserProfile(@RequestBody User user) {
+			return joinService.join(user);
 	}
 }
